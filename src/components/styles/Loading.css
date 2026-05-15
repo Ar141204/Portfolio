@@ -73,7 +73,7 @@
   font-weight: 500;
   position: relative;
   z-index: 9;
-  color: var(--backgroundColor);
+  color: var(--buttonText);
 }
 
 .loading-button::before {
@@ -190,12 +190,12 @@
 }
 
 .loading-content span {
-  font-weight: 300;
+  font-weight: 500;
   position: absolute;
   top: 50%;
   right: 0;
   transform: translateY(-50%);
-  opacity: 0.7;
+  opacity: 0.95;
 }
 
 .loading-box {

@@ -70,15 +70,15 @@
 .what-content p {
   font-size: 14px;
   line-height: 18px;
-  font-weight: 200;
+  font-weight: 300;
   letter-spacing: 0.7px;
 }
 .what-content h4 {
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: 1px;
   margin: 0px;
   font-size: 14px;
-  opacity: 0.3;
+  opacity: 0.7;
 }
 .what-content-in {
   opacity: 0;
@@ -209,8 +209,8 @@
   overflow: hidden;
 }
 .what-content-in h5 {
-  font-weight: 300;
-  opacity: 0.5;
+  font-weight: 400;
+  opacity: 0.8;
   font-size: 12px;
   letter-spacing: 1px;
   font-family: "Geist", sans-serif;

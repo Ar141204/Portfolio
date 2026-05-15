@@ -45,7 +45,7 @@
   --cardBackground: rgba(255, 255, 255, 0.05);
   --subText: #adacac;
   --shadowColor: rgba(255, 255, 255, 0.05);
-  --marqueeWatermark: rgba(255, 255, 255, 0.05);
+  --marqueeWatermark: rgba(255, 255, 255, 0.1);
 }
 
 h1,

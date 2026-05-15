@@ -5,9 +5,9 @@ import HoverLinks from "./HoverLinks";
 import { gsap } from "gsap";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import "./styles/Navbar.css";
+import { smootherState } from "./utils/smootherState";
 
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
-export let smoother: ScrollSmoother;
 
 const Navbar = () => {
   const [isDark, setIsDark] = useState(false);
@@ -36,33 +36,36 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    smoother = ScrollSmoother.create({
+    smootherState.current = ScrollSmoother.create({
       wrapper: "#smooth-wrapper",
       content: "#smooth-content",
-      smooth: 1.7,
-      speed: 1.7,
+      smooth: 2.5,
+      smoothTouch: 0.1,
+      speed: 1.2,
       effects: true,
       autoResize: true,
       ignoreMobileResize: true,
     });
 
-    smoother.scrollTop(0);
-    smoother.paused(true);
+    smootherState.current.scrollTop(0);
+    smootherState.current.paused(true);
 
     let links = document.querySelectorAll(".header ul a");
     links.forEach((elem) => {
       let element = elem as HTMLAnchorElement;
       element.addEventListener("click", (e) => {
-        if (window.innerWidth > 1024) {
+        if (smootherState.current) {
           e.preventDefault();
           let elem = e.currentTarget as HTMLAnchorElement;
           let section = elem.getAttribute("data-href");
-          smoother.scrollTo(section, true, "top top");
+          smootherState.current.scrollTo(section, true, "top top");
         }
       });
     });
     window.addEventListener("resize", () => {
-      ScrollSmoother.refresh(true);
+      if (smootherState.current) {
+        ScrollSmoother.refresh(true);
+      }
     });
   }, []);
   return (
